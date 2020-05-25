@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+
+    <!-- MATERIALIZE CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <!--Import Google Icon Font-->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!-- CSS -->
+    <link rel="stylesheet" type="text/css" href="./assets/css/index.css">
+ 
+    <!-- MEDIA QUERIES CSS -->
+    <link rel="stylesheet" type="text/css" href="./assets/css/media.css">
+    <!-- GOOGLE FONTS -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Playfair+Display&family=Playfair+Display&family=Raleway&display=swap"
+        rel="stylesheet">
+    <!-- FAVICON -->
+    <link rel="icon" href="./images/favicon.png" type="image/png">
+    <title>tuesday.com</title>
+</head>
+
+<body>
+
+    <!-- HEADER  -->
+    <div class="container">
+        <nav class="white">
+            <!-- HEADING TITLE/LOGO  -->
+            <div class="col s6 title left blue-text">tuesday.com</div>
+            <!-- NAVBAR -->
+            <!-- MAIN NAVBAR MENU  -->
+            <div class="col s6 blue-text navMenu">
+                <div>
+                    <ul>
+                        <li><a class="pink-text" href="home.html">Home</a></li>
+                        <li><a id="manager" class="logged-in blue-text" href="manager.html"
+                                style="display: none;">Project Managers</a></li>
+                        <li><a class="logged-in blue-text" href="team.html" style="display: none;">Team Members</a></li>
+
+                        <li class="logged-in" style="display: none;">
+                            <a href="#" class="blue-text modal-trigger" data-target="modal-account">Account</a>
+                        </li>
+                        <li class="logged-in" style="display: none;">
+                            <a href="#" class="blue-text" id="logout">Logout</a>
+                        </li>
+                        <li class="admin" style="display: none;">
+                            <a href="#" class="grey-text modal-trigger" data-target="modal-create">Manage User</a>
+                        </li>
+                        <li class="logged-out" style="display: none;">
+                            <a href="#" class="blue-text modal-trigger" data-target="modal-login">Login</a>
+                        </li>
+                        <li class="logged-out" style="display: none;">
+                            <a href="#" class="blue-text modal-trigger" data-target="modal-signup">Sign up</a>
+                        </li>
+                        <li class="logged-in" style="display: none;">
+                            <button type="submit" class="btn btn-primary" id="login-btn">View Projects</button>
+                        </li>
+
+
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </div>
+    <div class="clearfix"></div>
+    <!-- TOP BLUE BORDER   -->
+    <div class="row blue blueBorder">
+        <div class="container">
+            <img id="logo" class="left" src="./images/logo.png" alt="logo">
+            <p class="white-text tagline">...because three day weekends</p>
+        </div>
+    </div>
+    <!-- BODY -->
+    <div class="container bodyContainer">
+
+
+        <!-- SIGN UP MODAL -->
+        <div id="modal-signup" class="modal">
+            <div class="modal-content">
+                <h4>Sign up</h4><br />
+                <form id="signup-form">
+                    <div class="input-field">
+                        <input type="text" id="signup-username" required />
+                        <label for="signup-username">User Name</label>
+                    </div>
+                    <div class="input-field">
+                        <input type="email" id="signup-email" required />
+                        <label for="signup-email">Email address</label>
+                    </div>
+                    <div class="input-field">
+                        <input type="password" id="signup-password" required />
+                        <label for="signup-password">Choose password</label>
+                    </div>
+                    <div class="input-field">
+                        <input type="text" id="signup-bio" required />
+                        <label for="signup-bio">One Line Bio</label>
+                    </div>
+                    <div class="input-field">
+                        <input type="text" id="signup-role" required />
+                        <label for="signup-role">Role</label>
+                    </div>
+                    <button class="btn yellow darken-2 z-depth-0">Sign up</button>
+                </form>
+            </div>
+        </div>
+        <!-- <form class="center-align admin-actions"
+        style="margin: 40px auto; max-width: 300px;">
+        <input type="email" placeholder="User email" id="admin-email" required />
+        <button id="makeAdmin" class="btn-small yellow darken-2 z-depth-0">Make admin</button>
+        <button id="removeAdmin" class="btn-small yellow darken-2 z-depth-0">Remove admin</button>
+    </form> -->
+        <!-- Form replaced with sign up-->
+        <!-- <div id="SignUpForm">
+            <div class="row">
+                <div class="col-md-2"></div>
+                <div class="col-md-8">
+                    <h4>Create your username for projects here</h4><br />
+                    <form>
+                        <div class="form-group">
+                            <label for="exampleInputEmail1">USERNAME</label>
+                            <input type="text" class="form-control" id="username">
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleInputPassword1">PASSWORD</label>
+                            <input type="password" class="form-control" id="password">
+                        </div>
+                        <button type="submit" class="btn btn-primary" id="signup-btn">Create Username</button>
+             
+                        <br>
+                      
+                    </form>
+                </div>
+                <div class="col-md-2"></div>
+            </div>
+        </div>
+        <hr> -->
+        <!-- CREATE & MANAGE USER MODAL -->
+        <div id="modal-create" class="modal">
+            <div class="modal-content">
+                <!-- ADMIN ACTIONS -->
+                <form class="center-align admin-actions admin"
+                    style="margin: 40px auto; max-width: 300px; display:block;">
+                    <input type="email" placeholder="User email" id="admin-email" required />
+                    <button id="makeAdmin" class="btn-small yellow darken-2 z-depth-0">Make admin</button>
+                    <button id="removeAdmin" class="btn-small yellow darken-2 z-depth-0">Remove admin</button>
+                </form>
+            </div>
+        </div>
+        <!-- LOGIN MODAL -->
+        <div id="modal-login" class="modal">
+            <div class="modal-content">
+                <h4>Login</h4><br />
+                <form id="login-form">
+                    <div class="input-field">
+                        <input type="text" id="login-username" required />
+                        <label for="login-username">User Name</label>
+                    </div>
+                    <div class="input-field">
+                        <input type="email" id="login-email" required />
+                        <label for="login-email">Email address</label>
+                    </div>
+                    <div class="input-field">
+                        <input type="password" id="login-password" required />
+                        <label for="login-password">Your password</label>
+                    </div>
+                    <button class="btn yellow darken-2 z-depth-0">Login</button>
+                </form>
+            </div>
+        </div>
+        <!-- ACCOUNT MODAL -->
+        <div id="modal-account" class="modal">
+            <div class="modal-content center-align">
+                <h4>Account details</h4><br />
+                <div class="account-details"></div>
+            </div>
+        </div>
+        <!-- MAIN PAGE SLIDESHOW  -->
+        <div class="slideshow center-align">
+            <div id="slideshow">
+                <div class="slide">
+                    <img class="responsive-img pics center-align" src="./images/infographics/one.jpg" alt="">
+                    <p class="left-align caption1"></p>
+                </div>
+                <div class="slide">
+                    <img class="responsive-img pics" src="./images/infographics/six.jpg" alt="">
+                    <p class="left-align green-text caption2"></p>
+                </div>
+                <div class="slide">
+                    <img class="responsive-img pics" src="./images/infographics/three.jpg" alt="">
+                    <p class="left-align caption3"></p>
+                </div>
+                <div class="slide">
+                    <img class="responsive-img pics" src="./images/infographics/four.jpg" alt="">
+                    <p class="left-align caption4"></p>
+                </div>
+                <div class="slide">
+                    <img class="responsive-img pics" src="./images/infographics/five.jpg" alt="">
+                    <p class="left-align caption5"></p>
+                </div>
+                <div class="slide">
+                    <img class="responsive-img pics" src="./images/infographics/two.jpg" alt="">
+                    <p class="left-align caption6"></p>
+                </div>
+            </div>
+        </div> <!-- end slideshow -->
+     
+        <!-- MAIN PAGE USER REVIEWS -->
+        <div class="reviews valign-wrapper">
+            <div class="col s12 grey-text darken-3 italic center-align review1">"This is the best site to come along in
+                ten
+                years." &nbsp -The New York Times (allegedly)</div>
+        </div>
+        <div class="reviews valign-wrapper">
+            <div class="col s12 grey-text darken-3 italic center-align review2">"It's the best site I've ever seen!"
+                &nbsp
+                -My Mom</div>
+        </div>
+        <div class="reviews valign-wrapper">
+            <div class="col s12 grey-text darken-3 italic center-align review3">"It's the second best site I've ever
+                seen!"
+                &nbsp -Your Mom</div>
+        </div>
+           <!-- Form -->
+           <div id="LoginForm" style="display: none;">
+            <div class="row">
+                <div class="col-md-2"></div>
+                <div class="col-md-8">
+                    <h4>View your Projects</h4><br />
+                    <form>
+                        <div class="form-group">
+                            <label for="exampleInputEmail1">USERNAME</label>
+                            <input type="text" class="form-control" id="loginUserName">
+                        </div>
+
+                        <button type="submit" class="btn btn-primary" id="login-btn">View</button>
+                    </form>
+                </div>
+                <div class="col-md-2"></div>
+            </div>
+        </div>
+    </div> <!-- end bodyContainer -->
+
+
+
+    <!-- FOOTER  -->
+    <div class="row blue footer">
+        <div class="container">
+            <div class="col s6 footerText white-text col-s2">
+                <div class="card-panel blue left">&copy &nbsp Copyright 2020</div>
+            </div>
+            <div class="col s6 footerText white-text col-s-5">
+                <div class="card-panel blue right">Christina Tarango, Ticia Rodela & Jennifer Kruk</div>
+            </div>
+        </div>
+    </div>
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+        integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous">
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous">
+    </script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+        integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous">
+    </script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+    <script src="https://www.gstatic.com/firebasejs/7.14.5/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.14.5/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.14.5/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.14.0/firebase-functions.js"></script>
+    <!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+
+    <script>
+        // Your web app's Firebase configuration
+        var config = {
+            apiKey: "AIzaSyAUgdAn4S2n4dpz6-XzH1Pcqv5Hx7QCkJQ",
+            authDomain: "fproject2-7928a.firebaseapp.com",
+            databaseURL: "https://fproject2-7928a.firebaseio.com",
+            projectId: "fproject2-7928a",
+            storageBucket: "fproject2-7928a.appspot.com",
+            messagingSenderId: "601058027900",
+            appId: "1:601058027900:web:8b0c246b40d34c5b381cf9"
+        };
+        firebase.initializeApp(config);
+
+        // make auth and firestore references
+        const auth = firebase.auth();
+        const db = firebase.firestore();
+        const functions = firebase.functions();
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <script src="assets/js/auth.js"></script>
+    <script src="assets/js/index.js"></script>
+    <script src="assets/js/app.js"></script>
+</body>
+
+</html>
