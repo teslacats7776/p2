@@ -34,7 +34,7 @@ $(document).ready(function () {
         event.preventDefault();
         console.log("Inside login button");
       
-         var username = $("#loginUserName").val().trim();
+        var username= document.getElementById('loginUserName').value
         // var password = $("#loginpassword").val().trim();
         getUser(username);
         // getUser(username, password);
